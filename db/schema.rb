@@ -10,42 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_042419) do
+ActiveRecord::Schema.define(version: 2018_10_12_023532) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "authors", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "bookmarks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "books", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "author_id"
     t.string "name"
-    t.string "introduction"
+    t.string "introduce"
     t.string "cover"
     t.string "content"
+    t.integer "quantity"
+    t.integer "status", default: 2, null: false
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "quantity"
-    t.integer "status"
-    t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "borrows", force: :cascade do |t|
-    t.bigint "book_id"
-    t.bigint "user_id"
-    t.datetime "borrow_at"
-    t.datetime "term_at"
+    t.date "borrow_at"
+    t.date "deadline_at"
     t.integer "status"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_borrows_on_book_id"
@@ -61,45 +49,39 @@ ActiveRecord::Schema.define(version: 2018_10_12_042419) do
   end
 
   create_table "interactions", force: :cascade do |t|
+    t.integer "rating"
+    t.string "comment"
+    t.string "type", null: false
     t.bigint "user_id"
     t.bigint "book_id"
-    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_interactions_on_book_id"
     t.index ["user_id"], name: "index_interactions_on_user_id"
   end
 
+  create_table "lists", force: :cascade do |t|
+    t.string "info_type"
+    t.bigint "info_id"
+    t.bigint "book_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["book_id"], name: "index_lists_on_book_id"
+    t.index ["info_id", "info_type", "book_id"], name: "index_lists_on_info_id_and_info_type_and_book_id"
+    t.index ["info_type", "info_id"], name: "index_lists_on_info_type_and_info_id"
+  end
+
   create_table "people", force: :cascade do |t|
-    t.string "type"
     t.string "name"
     t.string "avatar"
     t.string "address"
     t.string "introduction"
     t.integer "status"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "reviews", force: :cascade do |t|
-    t.integer "rating"
-    t.string "comment"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password"
-    t.integer "status"
+    t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
-
-  add_foreign_key "books", "authors"
-  add_foreign_key "books", "users"
-  add_foreign_key "borrows", "books"
-  add_foreign_key "borrows", "users"
-  add_foreign_key "interactions", "books"
-  add_foreign_key "interactions", "users"
+  add_foreign_key "lists", "books"
 end
