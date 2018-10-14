@@ -30,5 +30,8 @@ module BookSharingPortal
     # Don't generate system test files.
     config.generators.system_tests = nil
     config.autoload_paths += %W(#{config.root}/app/models)
+    config.i18n.load_path += Dir[Rails.root.join("config", "locales", "**", "*.{rb,yml}")]
+    config.i18n.available_locales = [:en, :vi]
+    config.i18n.default_locale = :vi
   end
 end
