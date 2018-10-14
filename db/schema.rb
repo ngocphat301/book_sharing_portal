@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_12_023532) do
+ActiveRecord::Schema.define(version: 2018_10_13_114735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
   create_table "borrows", force: :cascade do |t|
     t.date "borrow_at"
     t.date "deadline_at"
-    t.integer "status"
+    t.integer "status", default: 0, null: false
     t.bigint "user_id"
     t.bigint "book_id"
     t.datetime "created_at", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
   create_table "categories", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.integer "status"
+    t.integer "status", default: 1, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -76,12 +76,18 @@ ActiveRecord::Schema.define(version: 2018_10_12_023532) do
     t.string "avatar"
     t.string "address"
     t.string "introduction"
-    t.integer "status"
-    t.string "email"
-    t.string "password"
+    t.integer "status", default: 0, null: false
     t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.index ["email"], name: "index_people_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_people_on_reset_password_token", unique: true
   end
+
   add_foreign_key "lists", "books"
 end
