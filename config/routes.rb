@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'books/index'
+  get 'books/category'
+  get 'books/show'
+  get 'books/borrow'
   scope "(:locale)", locale: /en|vi/ do
   root "pages#home"
   get "/home", to: "pages#home", as: :home
