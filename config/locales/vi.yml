@@ -1,0 +1,18 @@
+vi: 
+  layouts:
+    header:
+      home: "trang chủ"
+      help: "hỗ trợ"
+      contact: "liên hệ"
+      login: "Đăng nhập"
+      sign_up: "Đăng kí"
+    footer:
+      en: "English"
+      vi: "Viet Nam"
+  pages:
+    home:
+      title: "trang chủ"
+    contact: 
+      title: "liên hệ"
+    help:
+      title: "trợ giúp "

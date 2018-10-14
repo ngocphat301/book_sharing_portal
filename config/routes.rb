@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  scope "(:locale)", locale: /en|vi/ do
+  root "pages#home"
+  get "/home", to: "pages#home", as: :home
+  get "/help", to: "pages#help", as: :help
+  get "/contact", to: "pages#contact", as: :contact
+  end
 end
