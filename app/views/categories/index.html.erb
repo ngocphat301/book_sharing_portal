@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <div class="card col-md-3">
+      <div class="card-header">
+        <%= t".category" %>
+      </div>
+      <ul class="list-group list-group-flush">
+        <% @categories.each do |category| %>
+        <li class="list-group-item">
+          <%= link_to category.name,category%>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+    <div class="show_book col-md-9">
+      <%= render "categories/show" %>
+    </div>
+  </div>
+</div>

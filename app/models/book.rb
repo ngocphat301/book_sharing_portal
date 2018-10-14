@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :user
+    belongs_to :user
   has_many :borrows
   has_many :bookmarks
   has_many :reviews
@@ -33,4 +33,5 @@ class Book < ApplicationRecord
   def category_exist? category
     categories.include? category
   end
+
 end

@@ -16,3 +16,9 @@ vi:
       title: "liên hệ"
     help:
       title: "trợ giúp "
+  books:
+    index:
+      title_category: "Thể Loại"
+  categories:
+    index:
+      category: "Danh Muc Sach"

@@ -12,7 +12,6 @@
 
 ActiveRecord::Schema.define(version: 2018_10_13_114735) do
 
-
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -91,5 +90,4 @@ ActiveRecord::Schema.define(version: 2018_10_13_114735) do
   end
 
   add_foreign_key "lists", "books"
-
 end
