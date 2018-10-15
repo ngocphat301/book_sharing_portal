@@ -1,0 +1,8 @@
+<p><%= t "users.confirmation.hello" %> <%= @resource.email %>!</p>
+
+<p><%= t "users.confirmation.notice_locked" %></p>
+
+<p><%= t "users.confirmation.click" %></p>
+
+<p><%= link_to t("users.confirmation.open_lock"), unlock_url(@resource,
+  unlock_token: @token) %></p>
