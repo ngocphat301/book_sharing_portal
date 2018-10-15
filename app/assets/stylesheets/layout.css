@@ -1,0 +1,19 @@
+header{
+  border-style: double;
+}
+footer{
+  border-style: double;
+}
+main{
+  border-style: double;
+}
+.form-user{
+  max-width: 350px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+input[type=submit]{
+  width: 100%;
+}
+
