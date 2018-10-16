@@ -1,4 +1,21 @@
-en:
+vi: 
+  layouts:
+    header:
+      home: "trang chủ"
+      help: "hỗ trợ"
+      contact: "liên hệ"
+      login: "Đăng nhập"
+      sign_up: "Đăng kí"
+    footer:
+      en: "English"
+      vi: "Viet Nam"
+  books:
+    index:
+      title_category: "Thể Loại"
+      borrow_read: "Mượn Sách"
+  categories:
+    index:
+      category: "Danh Muc Sach"
   users:
     confirmation:
       resend: "Gửi lại hướng dẫn xác nhận"
@@ -49,6 +66,6 @@ en:
       update: "Cập nhật"
       current_password: "mật khẩu hiện tại"
       cancel: "Hủy tài khoản của tôi"
-  static_pages:
+  static_page:
     home:
       title: "Trang chủ"
