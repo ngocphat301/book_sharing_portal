@@ -1,0 +1,47 @@
+@import 'color_variables';
+@import 'book';
+@import 'layout';
+@import 'bootstrap';
+
+
+body {
+  font-family: arial;
+  font-size: 14px;
+  margin: 0px auto;
+  padding: 0px;
+  background: rgb(207, 206, 206);
+}
+header{
+  .navbar{
+    padding: 0px;
+  }
+  li{
+    padding: 15px;
+    margin: 0px auto;
+    font-size: 15px;
+    text-transform: uppercase;
+    a{
+      color: $black-font;
+    }
+  }
+  margin-bottom: 70px;
+}
+
+.social-share-button .ssb-icon {
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-size: 44px 46px !important;
+  display: inline-block !important;
+  height: 50px !important;
+  width: 60px !important;
+}
+.social-share-button {
+  right: 1px;
+  top: 0px;
+}
+footer{
+  p{
+    text-align: center;
+    color: $black-font;
+  }
+}
